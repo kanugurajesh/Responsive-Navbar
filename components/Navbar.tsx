@@ -1,18 +1,24 @@
 'use client'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MobileNavbar from './MobileNavbar'
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState(1)
   const [hover, setHover] = useState(false)
   const [width, setWidth] = useState(1000)
-  
-  if (typeof window !== 'undefined') {
+
+  useEffect(() => {
+    setWidth(window.innerWidth)
     window.addEventListener('resize', () => {
       setWidth(window.innerWidth)
     })
-  }
+    return () => {
+      window.removeEventListener('resize', () => {
+        setWidth(window.innerWidth)
+      })
+    }
+  }, [])
 
   return (
     <div>
