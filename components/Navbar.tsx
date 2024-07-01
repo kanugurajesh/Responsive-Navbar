@@ -6,11 +6,13 @@ import MobileNavbar from './MobileNavbar'
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState(1)
   const [hover, setHover] = useState(false)
-  const [width, setWidth] = useState(window.innerWidth)
-
-  window.addEventListener('resize', () => {
-    setWidth(window.innerWidth)
-  })
+  const [width, setWidth] = useState(1000)
+  
+  if (typeof window !== 'undefined') {
+    window.addEventListener('resize', () => {
+      setWidth(window.innerWidth)
+    })
+  }
 
   return (
     <div>
