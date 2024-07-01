@@ -7,7 +7,7 @@ const MobileNavbar = () => {
   const [activeMenu, setActiveMenu] = useState(false)
   return (
     <div className='relative'>
-      <nav className="p-4 px-10 flex items-center justify-between">
+      <nav className="p-4 px-10 flex justify-between">
         <Link
           href="/"
           className="flex items-center font-black text-xl hover:scale-105 transition-all ease-in-out duration-300"
